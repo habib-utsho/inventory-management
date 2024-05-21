@@ -1,9 +1,8 @@
-import express, { Request, Response } from "express";
+import {  Router } from "express";
+import { getAllOrderController } from "./order.controller";
 
-const router = express.Router()
+const router =  Router()
 
-router.get('/', (req:Request, res:Response)=> {
-  res.status(200).send('Get all orders')
-})
+router.get('/', getAllOrderController)
 
 export {router as orderRouter}

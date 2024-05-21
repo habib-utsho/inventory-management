@@ -1,7 +1,7 @@
-import mongoose, { Schema, model } from "mongoose";
+import { Schema, model } from "mongoose";
 import { TProduct } from "./product.interface";
 
-const orderSchema = new Schema<TProduct>({
+const productSchema = new Schema<TProduct>({
   name: { type: String, required: [true, "Product name is required"] },
   description: {
     type: String,
@@ -18,6 +18,6 @@ const orderSchema = new Schema<TProduct>({
   inventory: { type: { quantity: Number, inStock: Boolean } },
 });
 
-const OrderModel = model('order', orderSchema)
+const ProductModel = model('product', productSchema)
 
-export default OrderModel
+export default ProductModel
