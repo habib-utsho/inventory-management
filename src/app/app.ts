@@ -11,7 +11,8 @@ app.use(cors())
 
 
 // Router
-app.use('/api/v1/order', orderRouter)
+app.use('/api/order', orderRouter)
+app.use('/api/products', orderRouter)
 
 app.get("/", (req: Request, res: Response) => {
   res.status(200).send("Success");
