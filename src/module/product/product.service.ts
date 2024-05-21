@@ -7,8 +7,9 @@ const insertProductToDb = async(product:TProduct)=>{
     // const result = await Student.create(student)
 
     // Using instance method
+    console.log(product, 'product from server');
     const result = new ProductModel(product)
-    result.save()
+   await result.save()
 
     return result
 }
