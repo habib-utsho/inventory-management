@@ -1,6 +1,9 @@
 type TOrder = {
-    order: string,
+    email: string,
+    productId: string,
+    price: number,
+    quantity: number
 }
 
 
-export {TOrder as TProduct}
+export {TOrder}

@@ -30,7 +30,6 @@ const insertProductController = async (req: Request, res: Response) => {
   const product = req.body;
   try {
     const data = await insertProductToDb(product);
-    console.log(data, 'data from router');
     if (data) {
       res.status(200).send({
         success: true,
@@ -49,6 +48,7 @@ const insertProductController = async (req: Request, res: Response) => {
 const getSingleProductByIdController = async (req: Request, res: Response) => {
   const { productId } = req.params;
   try {
+
     const data = await getProductById(productId);
     if (data) {
       res.status(200).send({
