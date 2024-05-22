@@ -18,14 +18,25 @@ const insertProductToDb = (product) => __awaiter(void 0, void 0, void 0, functio
     // Using static method
     // const result = await Student.create(student)
     // Using instance method
-    console.log(product, 'product from server');
+    // console.log(product, 'product from server')
     const result = new product_model_1.default(product);
     yield result.save();
     return result;
 });
 exports.insertProductToDb = insertProductToDb;
-const getAllProducts = () => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield product_model_1.default.find({});
+const getAllProducts = (searchTerm) => __awaiter(void 0, void 0, void 0, function* () {
+    let find = {};
+    if (searchTerm != undefined && searchTerm != '') {
+        find = {
+            $or: [
+                { name: { $regex: new RegExp(searchTerm, "i") } },
+                { category: { $regex: new RegExp(searchTerm, "i") } },
+                { description: { $regex: new RegExp(searchTerm, "i") } },
+                // { description: { $regex: searchTerm, $options: 'i' } },
+            ],
+        };
+    }
+    const result = yield product_model_1.default.find(find);
     return result;
 });
 exports.getAllProducts = getAllProducts;

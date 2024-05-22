@@ -13,8 +13,17 @@ exports.deleteAllProductsController = exports.deleteProductByIdController = expo
 const product_service_1 = require("./product.service");
 const product_validate_1 = require("./product.validate");
 const getAllProductsController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { searchTerm } = req.query;
     try {
-        const data = yield (0, product_service_1.getAllProducts)();
+        const data = yield (0, product_service_1.getAllProducts)(searchTerm);
+        if (searchTerm) {
+            res.status(200).send({
+                success: true,
+                message: `Products matching search term ${searchTerm} fetched successfully!`,
+                data,
+            });
+            return;
+        }
         if (data) {
             res.status(200).send({
                 success: true,

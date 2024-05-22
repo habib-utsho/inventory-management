@@ -15,6 +15,7 @@ const insertProductToDb = async (product: TProduct) => {
 
 const getAllProducts = async (searchTerm: string) => {
   let find = {}
+  
   if(searchTerm!=undefined && searchTerm != ''){
     find = {
       $or: [
