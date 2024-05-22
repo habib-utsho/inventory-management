@@ -10,7 +10,6 @@ const orderSchema = new Schema<TOrder>({
 });
 
 //Middleware for decrease the product quantity after an order place
-
 orderSchema.post<TOrder>("save", async function (doc, next) {
   try {
     const product = await ProductModel.findById(this.productId);
@@ -28,7 +27,7 @@ orderSchema.post<TOrder>("save", async function (doc, next) {
         product.save();
         next();
       } else {
-        throw new Error("Insufficient inventory for the product");
+        throw new Error("Insufficient quantity available in inventory");
       }
     } else {
       throw new Error("Product not found");
