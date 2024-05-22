@@ -1,4 +1,5 @@
 **Inventory Management System**
+
 **Welcome to the Inventory Management System! This application is built using Express.js, MongoDB, and TypeScript to help you efficiently manage your inventory.**
 
 *Getting Started*
