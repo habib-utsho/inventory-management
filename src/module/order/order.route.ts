@@ -1,8 +1,9 @@
 import {  Router } from "express";
-import { getAllOrderController } from "./order.controller";
+import { getAllOrdersController, insertOrderController } from "./order.controller";
 
 const router =  Router()
 
-router.get('/', getAllOrderController)
+router.post('/', insertOrderController)
+router.get('/', getAllOrdersController)
 
 export {router as orderRouter}

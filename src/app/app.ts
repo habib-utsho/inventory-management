@@ -12,7 +12,7 @@ app.use(cors())
 
 
 // Router
-app.use('/api/order', orderRouter)
+app.use('/api/orders', orderRouter)
 app.use('/api/products', productRouter)
 
 app.get("/", (req: Request, res: Response) => {
