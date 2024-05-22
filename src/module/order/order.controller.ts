@@ -14,7 +14,13 @@ const insertOrderController = async (req: Request, res: Response) => {
         message: "Order created successfully!",
         data: result,
       });
-    }
+    } else {
+        res.status(400).send({
+          success: false,
+          message: "Order not created!",
+          result,
+        });
+      }
   } catch (e: any) {
     res.status(400).send({
       success: false,

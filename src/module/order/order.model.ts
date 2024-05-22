@@ -10,7 +10,7 @@ const orderSchema = new Schema<TOrder>({
 });
 
 //Middleware for decrease the product quantity after an order place
-orderSchema.post<TOrder>("save", async function (doc, next) {
+orderSchema.pre<TOrder>("save", async function (next) {
   try {
     const product = await ProductModel.findById(this.productId);
     if (product) {

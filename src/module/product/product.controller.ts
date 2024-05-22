@@ -17,6 +17,12 @@ const getAllProductsController = async (req: Request, res: Response) => {
         message: "Products fetched successfully!",
         data,
       });
+    } else{
+      res.status(400).send({
+        success: false,
+        message: "Products not found!",
+        data,
+      });
     }
   } catch (e: any) {
     res.status(400).send({
@@ -30,10 +36,17 @@ const insertProductController = async (req: Request, res: Response) => {
   const product = req.body;
   try {
     const data = await insertProductToDb(product);
+    console.log(data);
     if (data) {
       res.status(200).send({
         success: true,
         message: "Product created successfully!",
+        data,
+      });
+    } else{
+      res.status(400).send({
+        success: false,
+        message: "Product not created!",
         data,
       });
     }
@@ -56,6 +69,12 @@ const getSingleProductByIdController = async (req: Request, res: Response) => {
         message: "Product fetched successfully!",
         data,
       });
+    } else{
+      res.status(400).send({
+        success: false,
+        message: "Product not found!",
+        data,
+      });
     }
   } catch (e: any) {
     res.status(400).send({
@@ -74,6 +93,12 @@ const updateProductByIdController = async (req: Request, res: Response) => {
       res.status(200).send({
         success: true,
         message: "Product updated successfully!",
+        data,
+      });
+    } else{
+      res.status(400).send({
+        success: false,
+        message: "Product not found to update!",
         data,
       });
     }
@@ -95,6 +120,12 @@ const deleteProductByIdController = async (req: Request, res: Response) => {
         message: "Product deleted successfully!",
         data,
       });
+    } else{
+      res.status(400).send({
+        success: false,
+        message: "Product not found to delete!",
+        data,
+      });
     }
   } catch (e: any) {
     res.status(400).send({
@@ -111,6 +142,12 @@ const deleteAllProductsController = async (req: Request, res: Response) => {
       res.status(200).send({
         success: true,
         message: "All products are deleted successfully!",
+        data,
+      });
+    }else {
+      res.status(400).send({
+        success: false,
+        message: "Products not found to delete!",
         data,
       });
     }
