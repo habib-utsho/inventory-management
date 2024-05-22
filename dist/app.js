@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
-const order_route_1 = require("./module/order/order.route");
-const product_route_1 = require("./module/product/product.route");
-const errHandler_1 = require("./middleware/errHandler");
+const errHandler_1 = require("./app/middleware/errHandler");
+const order_route_1 = require("./app/module/order/order.route");
+const product_route_1 = require("./app/module/product/product.route");
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 // parser
@@ -18,8 +18,8 @@ app.use((0, cors_1.default)());
 app.use('/api/orders', order_route_1.orderRouter);
 app.use('/api/products', product_route_1.productRouter);
 // Demo homepage
-app.get("/", (req, res) => {
-    res.status(200).send("Homepage");
+app.get('/', (req, res) => {
+    res.status(200).send('Inventory management homepage');
 });
 // Error handler middleware
 app.use(errHandler_1.notFound);

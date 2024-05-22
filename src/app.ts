@@ -17,7 +17,7 @@ app.use('/api/products', productRouter)
 
 // Demo homepage
 app.get('/', (req: Request, res: Response) => {
-  res.status(200).send('Homepage')
+  res.status(200).send('Inventory management homepage')
 })
 
 // Error handler middleware

@@ -18,14 +18,14 @@ const insertOrderController = (req, res) => __awaiter(void 0, void 0, void 0, fu
         if (result) {
             res.status(200).send({
                 success: true,
-                message: "Order created successfully!",
+                message: 'Order created successfully!',
                 data: result,
             });
         }
         else {
             res.status(400).send({
                 success: false,
-                message: "Order not created!",
+                message: 'Order not created!',
                 result,
             });
         }
@@ -33,7 +33,7 @@ const insertOrderController = (req, res) => __awaiter(void 0, void 0, void 0, fu
     catch (e) {
         res.status(400).send({
             success: false,
-            message: e.message || "Something is wrong",
+            message: e.message || 'Something is wrong',
             error: e,
         });
     }
@@ -46,14 +46,14 @@ const getAllOrdersController = (req, res) => __awaiter(void 0, void 0, void 0, f
         if (email && result) {
             res.status(200).send({
                 success: true,
-                message: "Orders fetched successfully for user email!",
+                message: 'Orders fetched successfully for user email!',
                 data: result,
             });
         }
         else {
             res.status(200).send({
                 success: true,
-                message: "Orders fetched successfully!",
+                message: 'Orders fetched successfully!',
                 data: result,
             });
         }
@@ -61,7 +61,7 @@ const getAllOrdersController = (req, res) => __awaiter(void 0, void 0, void 0, f
     catch (e) {
         res.status(400).send({
             success: false,
-            message: e.message || "Something is wrong",
+            message: e.message || 'Something is wrong',
             error: e,
         });
     }

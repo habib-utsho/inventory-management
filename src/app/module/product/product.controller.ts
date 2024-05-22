@@ -7,6 +7,7 @@ import {
   insertProductToDb,
   updateProductById,
 } from './product.service'
+import { validateProduct } from './product.validate'
 
 const getAllProductsController = async (req: Request, res: Response) => {
   try {
@@ -35,8 +36,9 @@ const getAllProductsController = async (req: Request, res: Response) => {
 const insertProductController = async (req: Request, res: Response) => {
   const product = req.body
   try {
-    const data = await insertProductToDb(product)
-    console.log(data)
+    const zodProductValidateSchema = validateProduct(product)
+
+    const data = await insertProductToDb(zodProductValidateSchema)
     if (data) {
       res.status(200).send({
         success: true,

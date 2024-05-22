@@ -11,20 +11,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteAllProductsController = exports.deleteProductByIdController = exports.updateProductByIdController = exports.getSingleProductByIdController = exports.insertProductController = exports.getAllProductsController = void 0;
 const product_service_1 = require("./product.service");
+const product_validate_1 = require("./product.validate");
 const getAllProductsController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = yield (0, product_service_1.getAllProducts)();
         if (data) {
             res.status(200).send({
                 success: true,
-                message: "Products fetched successfully!",
+                message: 'Products fetched successfully!',
                 data,
             });
         }
         else {
             res.status(400).send({
                 success: false,
-                message: "Products not found!",
+                message: 'Products not found!',
                 data,
             });
         }
@@ -32,7 +33,7 @@ const getAllProductsController = (req, res) => __awaiter(void 0, void 0, void 0,
     catch (e) {
         res.status(400).send({
             success: false,
-            message: e.message || "Something is wrong",
+            message: e.message || 'Something is wrong',
             error: e,
         });
     }
@@ -41,19 +42,20 @@ exports.getAllProductsController = getAllProductsController;
 const insertProductController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const product = req.body;
     try {
-        const data = yield (0, product_service_1.insertProductToDb)(product);
+        const zodProductValidateSchema = (0, product_validate_1.validateProduct)(product);
+        const data = yield (0, product_service_1.insertProductToDb)(zodProductValidateSchema);
         console.log(data);
         if (data) {
             res.status(200).send({
                 success: true,
-                message: "Product created successfully!",
+                message: 'Product created successfully!',
                 data,
             });
         }
         else {
             res.status(400).send({
                 success: false,
-                message: "Product not created!",
+                message: 'Product not created!',
                 data,
             });
         }
@@ -61,7 +63,7 @@ const insertProductController = (req, res) => __awaiter(void 0, void 0, void 0, 
     catch (e) {
         res.status(400).send({
             success: false,
-            message: e.message || "Something is wrong",
+            message: e.message || 'Something is wrong',
             error: e,
         });
     }
@@ -74,14 +76,14 @@ const getSingleProductByIdController = (req, res) => __awaiter(void 0, void 0, v
         if (data) {
             res.status(200).send({
                 success: true,
-                message: "Product fetched successfully!",
+                message: 'Product fetched successfully!',
                 data,
             });
         }
         else {
             res.status(400).send({
                 success: false,
-                message: "Product not found!",
+                message: 'Product not found!',
                 data,
             });
         }
@@ -89,7 +91,7 @@ const getSingleProductByIdController = (req, res) => __awaiter(void 0, void 0, v
     catch (e) {
         res.status(400).send({
             success: false,
-            message: e.message || "Something is wrong",
+            message: e.message || 'Something is wrong',
             error: e,
         });
     }
@@ -103,14 +105,14 @@ const updateProductByIdController = (req, res) => __awaiter(void 0, void 0, void
         if (data) {
             res.status(200).send({
                 success: true,
-                message: "Product updated successfully!",
+                message: 'Product updated successfully!',
                 data,
             });
         }
         else {
             res.status(400).send({
                 success: false,
-                message: "Product not found to update!",
+                message: 'Product not found to update!',
                 data,
             });
         }
@@ -118,7 +120,7 @@ const updateProductByIdController = (req, res) => __awaiter(void 0, void 0, void
     catch (e) {
         res.status(400).send({
             success: false,
-            message: e.message || "Something is wrong",
+            message: e.message || 'Something is wrong',
             error: e,
         });
     }
@@ -131,14 +133,14 @@ const deleteProductByIdController = (req, res) => __awaiter(void 0, void 0, void
         if (data) {
             res.status(200).send({
                 success: true,
-                message: "Product deleted successfully!",
+                message: 'Product deleted successfully!',
                 data,
             });
         }
         else {
             res.status(400).send({
                 success: false,
-                message: "Product not found to delete!",
+                message: 'Product not found to delete!',
                 data,
             });
         }
@@ -146,7 +148,7 @@ const deleteProductByIdController = (req, res) => __awaiter(void 0, void 0, void
     catch (e) {
         res.status(400).send({
             success: false,
-            message: e.message || "Something is wrong",
+            message: e.message || 'Something is wrong',
             error: e,
         });
     }
@@ -158,14 +160,14 @@ const deleteAllProductsController = (req, res) => __awaiter(void 0, void 0, void
         if (data) {
             res.status(200).send({
                 success: true,
-                message: "All products are deleted successfully!",
+                message: 'All products are deleted successfully!',
                 data,
             });
         }
         else {
             res.status(400).send({
                 success: false,
-                message: "Products not found to delete!",
+                message: 'Products not found to delete!',
                 data,
             });
         }
@@ -173,7 +175,7 @@ const deleteAllProductsController = (req, res) => __awaiter(void 0, void 0, void
     catch (e) {
         res.status(400).send({
             success: false,
-            message: e.message || "Something is wrong",
+            message: e.message || 'Something is wrong',
             error: e,
         });
     }

@@ -16,10 +16,10 @@ app_1.default.listen(process.env.PORT || 5000, () => {
     //useFindAndModify: false
     })
         .then(() => {
-        console.log("Database connected!");
+        console.log('Database connected!');
     })
         .catch((e) => {
         console.log(process.env.DB_USERNAME, process.env.DB_PASSWORD);
-        console.log("Something went wrong", e);
+        console.log('Something went w rong', e);
     });
 });

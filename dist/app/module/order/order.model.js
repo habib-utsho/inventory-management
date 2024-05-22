@@ -15,13 +15,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
 const product_model_1 = __importDefault(require("../product/product.model"));
 const orderSchema = new mongoose_1.Schema({
-    email: { type: String, required: [true, "Email is required"] },
-    productId: { type: String, required: [true, "Product id is required"] },
-    price: { type: Number, required: [true, "Price is required"] },
-    quantity: { type: Number, required: [true, "Quantity is required"] },
+    email: { type: String, required: [true, 'Email is required'] },
+    productId: { type: String, required: [true, 'Product id is required'] },
+    price: { type: Number, required: [true, 'Price is required'] },
+    quantity: { type: Number, required: [true, 'Quantity is required'] },
 });
 //Middleware for decrease the product quantity after an order place
-orderSchema.pre("save", function (next) {
+orderSchema.pre('save', function (next) {
     return __awaiter(this, void 0, void 0, function* () {
         var _a, _b;
         try {
@@ -39,11 +39,11 @@ orderSchema.pre("save", function (next) {
                     next();
                 }
                 else {
-                    throw new Error("Insufficient quantity available in inventory");
+                    throw new Error('Insufficient quantity available in inventory');
                 }
             }
             else {
-                throw new Error("Product not found");
+                throw new Error('Product not found');
             }
         }
         catch (err) {
@@ -51,5 +51,5 @@ orderSchema.pre("save", function (next) {
         }
     });
 });
-const OrderModel = (0, mongoose_1.model)("order", orderSchema);
+const OrderModel = (0, mongoose_1.model)('order', orderSchema);
 exports.default = OrderModel;

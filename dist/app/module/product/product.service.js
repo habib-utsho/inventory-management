@@ -35,12 +35,16 @@ const getProductById = (productId) => __awaiter(void 0, void 0, void 0, function
 });
 exports.getProductById = getProductById;
 const updateProductById = (productId, product) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield product_model_1.default.findByIdAndUpdate(productId, product, { new: true }).select({ __v: 0 });
+    const result = yield product_model_1.default.findByIdAndUpdate(productId, product, {
+        new: true,
+    }).select({ __v: 0 });
     return result;
 });
 exports.updateProductById = updateProductById;
 const deleteProductById = (productId) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield product_model_1.default.findByIdAndDelete(productId).select({ __v: 0 });
+    const result = yield product_model_1.default.findByIdAndDelete(productId).select({
+        __v: 0,
+    });
     return result;
 });
 exports.deleteProductById = deleteProductById;
