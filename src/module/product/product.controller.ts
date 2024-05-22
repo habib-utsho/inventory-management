@@ -14,7 +14,7 @@ const getAllProductsController = async (req: Request, res: Response) => {
     if (data) {
       res.status(200).send({
         success: true,
-        message: "All products are retrieved successfully!",
+        message: "Products fetched successfully!",
         data,
       });
     }
@@ -33,7 +33,7 @@ const insertProductController = async (req: Request, res: Response) => {
     if (data) {
       res.status(200).send({
         success: true,
-        message: "Product inserted successfully!",
+        message: "Product created successfully!",
         data,
       });
     }
@@ -53,7 +53,7 @@ const getSingleProductByIdController = async (req: Request, res: Response) => {
     if (data) {
       res.status(200).send({
         success: true,
-        message: "Product is retrieved successfully!",
+        message: "Product fetched successfully!",
         data,
       });
     }
@@ -73,7 +73,7 @@ const updateProductByIdController = async (req: Request, res: Response) => {
     if (data) {
       res.status(200).send({
         success: true,
-        message: "Product is updated successfully!",
+        message: "Product updated successfully!",
         data,
       });
     }
@@ -92,7 +92,7 @@ const deleteProductByIdController = async (req: Request, res: Response) => {
     if (data) {
       res.status(200).send({
         success: true,
-        message: "Product is deleted successfully!",
+        message: "Product deleted successfully!",
         data,
       });
     }

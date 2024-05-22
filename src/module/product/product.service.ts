@@ -22,7 +22,7 @@ const getProductById = async(productId:string)=>{
     return result
 }
 const updateProductById = async(productId:string, product:Partial<TProduct>)=>{
-    const result = await ProductModel.findByIdAndUpdate(productId, product).select({__v:0})
+    const result = await ProductModel.findByIdAndUpdate(productId, product, {new:true}).select({__v:0})
     return result
 }
 const deleteProductById = async(productId:string)=>{
