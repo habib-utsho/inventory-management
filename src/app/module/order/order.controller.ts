@@ -1,10 +1,12 @@
 import { Request, Response } from 'express'
 import { getAllOrders, insertOrderToDb } from './order.service'
+import { validateOrder } from './order.validate'
 
 const insertOrderController = async (req: Request, res: Response) => {
   const order = req.body
   try {
-    const result = await insertOrderToDb(order)
+    const zodOrderValidateSchema = validateOrder(order)
+    const result = await insertOrderToDb(zodOrderValidateSchema)
     if (result) {
       res.status(200).send({
         success: true,

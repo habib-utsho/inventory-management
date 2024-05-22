@@ -19,6 +19,9 @@ app.use('/api/products', productRouter)
 app.get('/', (req: Request, res: Response) => {
   res.status(200).send('Inventory management homepage')
 })
+app.get('/test', (req: Request, res: Response) => {
+  res.status(200).send('Inventory management test')
+})
 
 // Error handler middleware
 app.use(notFound)

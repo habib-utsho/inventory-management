@@ -44,7 +44,6 @@ const insertProductController = (req, res) => __awaiter(void 0, void 0, void 0, 
     try {
         const zodProductValidateSchema = (0, product_validate_1.validateProduct)(product);
         const data = yield (0, product_service_1.insertProductToDb)(zodProductValidateSchema);
-        console.log(data);
         if (data) {
             res.status(200).send({
                 success: true,
