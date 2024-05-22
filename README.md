@@ -1,6 +1,6 @@
 **Inventory Management System**
 
-**Welcome to the Inventory Management System! This application is built using Express.js, MongoDB, and TypeScript to help you efficiently manage your inventory.**
+Welcome to the Inventory Management System! This application is built using Express.js, MongoDB, and TypeScript to help you efficiently manage your inventory.
 
 *Getting Started*
 To get started with the Inventory Management System locally, follow these steps:
@@ -20,3 +20,7 @@ Running the Server by- **yarn dev**
 
 
 The server will start at **http://localhost:5000**
+
+
+Production URL: **https://inventory-management-2-1cp1.onrender.com/api/products**
+

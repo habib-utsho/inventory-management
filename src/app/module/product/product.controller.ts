@@ -10,8 +10,21 @@ import {
 import { validateProduct } from './product.validate'
 
 const getAllProductsController = async (req: Request, res: Response) => {
+  const {searchTerm} = req.query
   try {
-    const data = await getAllProducts()
+    const data = await getAllProducts(searchTerm as string)
+
+
+    if (searchTerm) {
+      res.status(200).send({
+        success: true,
+        message: `Products matching search term ${searchTerm} fetched successfully!`,
+        data,
+      })
+      return
+    }
+
+
     if (data) {
       res.status(200).send({
         success: true,

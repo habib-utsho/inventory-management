@@ -6,14 +6,27 @@ const insertProductToDb = async (product: TProduct) => {
   // const result = await Student.create(student)
 
   // Using instance method
-  console.log(product, 'product from server')
+  // console.log(product, 'product from server')
   const result = new ProductModel(product)
   await result.save()
 
   return result
 }
-const getAllProducts = async () => {
-  const result = await ProductModel.find({})
+
+const getAllProducts = async (searchTerm: string) => {
+  let find = {}
+  if(searchTerm!=undefined && searchTerm != ''){
+    find = {
+      $or: [
+        { name: { $regex: new RegExp(searchTerm, "i") } },
+        { category: { $regex: new RegExp(searchTerm, "i") } },
+        { description: { $regex: new RegExp(searchTerm, "i") } },
+        // { description: { $regex: searchTerm, $options: 'i' } },
+      ],
+    }
+  }
+
+  const result = await ProductModel.find(find)
   return result
 }
 const getProductById = async (productId: string) => {
