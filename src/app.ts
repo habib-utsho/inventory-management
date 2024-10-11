@@ -7,6 +7,7 @@ import { productRouter } from './app/module/product/product.route'
 dotenv.config()
 const app: Application = express()
 
+
 // parser
 app.use(express.json())
 app.use(cors())
