@@ -5,6 +5,7 @@ Welcome to the Inventory Management System! This application is built using Expr
 
 
 
+
 *Getting Started*
 To get started with the Inventory Management System locally, follow these steps:
 
