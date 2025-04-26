@@ -7,7 +7,6 @@ To get started with the Inventory Management System locally, follow these steps:
 
 
 
-
 *Clone this repository to your local machine:*
 git clone [https://github.com/your-username/inventory-management.git](https://github.com/Source-Code-007/inventory-management.git)
 
