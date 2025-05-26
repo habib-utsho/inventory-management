@@ -11,7 +11,6 @@ git clone [https://github.com/your-username/inventory-management.git](https://gi
 
 
 
-
 *Navigate into the project directory:* cd inventory-management
 *Install dependencies:* npm install
 *Set up your environment variables:* Create a .env file in the root directory and provide the following variables:
