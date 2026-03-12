@@ -10,7 +10,6 @@ To get started with the Inventory Management System locally, follow these steps:
 git clone [https://github.com/your-username/inventory-management.git](https://github.com/Source-Code-007/inventory-management.git)
 
 
-
 *Navigate into the project directory:* cd inventory-management
 *Install dependencies:* npm install
 *Set up your environment variables:* Create a .env file in the root directory and provide the following variables:
